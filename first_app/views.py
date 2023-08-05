@@ -9,16 +9,22 @@ from . import models
 from . import serializers
 
 from rest_framework import generics
+from rest_framework import viewsets
 
-
-class StudentListCreateView(generics.ListCreateAPIView):#get,post
+#recommended CURD operation
+class StudentViewSet(viewsets.ModelViewSet):
     queryset = models.StudentData.objects.all()
     serializer_class = serializers.StudentSerializers
 
 
-class StudentDetailRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.StudentData.objects.all()
-    serializer_class = serializers.StudentSerializers
+# class StudentListCreateView(generics.ListCreateAPIView):#get,post
+#     queryset = models.StudentData.objects.all()
+#     serializer_class = serializers.StudentSerializers
+
+
+# class StudentDetailRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):#get,put,patch,delete
+#     queryset = models.StudentData.objects.all()
+#     serializer_class = serializers.StudentSerializers
 # class StudentView(APIView):
 #     def get(self, request, format=None):
 #         studentData = models.StudentData.objects.all()
